@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="CreateAcc.css" />
+</head>
+<body>
+    <div class="c1">
+        <img src="Logo.jpg" alt="Fileview logo" width="156" height="156">
+        <h3>Create a Fileview account</h3>
+        <h4>Only one account per email.</h4>
+        <h5>Username:</h5>
+        <input type="text" id="Username">
+        <h6>Email:</h6>
+        <input type="text" id="Email">
+        <h7>Password:</h7>
+        <input type="password" id="password">
+        <h8>Confirm Password:</h8>
+        <input type="password" id="ConPassword">
+        <input type="button" id="btnSubmit" value="Create" href="/Main.html" onclick="return Validate()" />
+        <a class="back" href="/Welcome.html">Back</a>
+
+        <script type="text/javascript">
+            function Validate() {
+                var password = document.getElementById("password").value;
+                var confirmPassword = document.getElementById("ConPassword").value;
+                if (password != confirmPassword) {
+                    alert("Passwords do not match.");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </div>
+</body>
+</html>

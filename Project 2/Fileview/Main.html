@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Fileview</title>
+    <link rel="stylesheet" href="Main.css" />
+</head>
+<body>
+    <img src="Logo.jpg" alt="Fileview logo" width="156" height="156">
+    <h1>Welcome to Fileview</h1>
+    <h2>Upload your images</h2>
+    <input type="file" id="myFileInput">
+    <img id="imgPreview" src="" alt="preview">
+
+    <script>
+        document.querySelector("#myFileInput").addEventListener("change", function () {
+            const reader = new FileReader();
+
+            reader.addEventListener("load", () => {
+                localStorage.setItem("recent-image", reader.result)
+            });
+
+            reader.readAsDataURL(this.files[0]);
+        });
+
+        document.addEventListener("DOMContentloaded", () => {
+            const recentImageDataUrl = localStorage.getItem("recent-image");
+
+            if (recentImageDataUrl) {
+                document.querySelector("#imgPreview").setAttribute("src", recentImageDataUrl);
+            }
+        });
+    </script>
+</body>
+</html>
